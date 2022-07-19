@@ -26,7 +26,7 @@ schema_cache_timeout = 60 * 5  # 5 minutes
 
 swagger_urlpatterns = [
     path(
-        "",
+        "/swagger/",
         schema_view.with_ui("swagger", cache_timeout=schema_cache_timeout),
         name="schema-swagger-ui",
     ),
@@ -66,7 +66,7 @@ urlpatterns = swagger_urlpatterns + [
     path(settings.ADMIN_URL, admin.site.urls),
     path("api/v1/", include((urlpatterns_v1, "v1"))),
     path("api/v2/", include((urlpatterns_v2, "v2"))),
-    path("check/", lambda request: HttpResponse("Ok"), name="check"),
+    path("check/", lambda request: HttpResponse("Ok Hello 1"), name="check"),
 ]
 
 
